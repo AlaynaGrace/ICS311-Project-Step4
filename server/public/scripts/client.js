@@ -9,10 +9,10 @@ myApp.config(["$routeProvider", "$locationProvider", function($routeProvider,$lo
     }).when('/formone',{
         templateUrl: "/views/formone.html",
         controller: "BasicController as bc"
-    }).when('/formone',{
+    }).when('/formtwo',{
         templateUrl: "/views/formtwo.html",
         controller: "BasicController as bc"
-    }).when('/formone',{
+    }).when('/formthree',{
         templateUrl: "/views/formthree.html",
         controller: "BasicController as bc"
     }).otherwise('/');
