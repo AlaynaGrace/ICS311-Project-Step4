@@ -9,7 +9,7 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
             row = 10;
             vm.rowCount = 10;
         }
-        else{
+        else if(row === -1){
             row = 15;
             vm.rowCount =15;
         }
