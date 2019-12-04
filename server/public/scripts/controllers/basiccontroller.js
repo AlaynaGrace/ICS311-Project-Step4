@@ -4,7 +4,7 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
     vm.currentTable="";
     vm.getInfo = function(row){
         if(row == 0){
-            row = -1;
+            row = 10;
             vm.rowCount = -1;
         }
         if(vm.currentTable !== vm.formoneTable){
@@ -17,19 +17,19 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
         }
         $http.get("/db?table=" + vm.formoneTable + "&row=" + row).then(function success(response){
             if(vm.formoneTable === "pets"){
-                vm.pets = response.body;
+                vm.pets = response.data;
                 if(vm.pets.adoption_date === null || vm.pets.adoption_date === undefined){
                     vm.pets.adoption_date = "N/A";
                 }
             }
             else if(vm.formoneTable === "staff"){
-                vm.staff = response.body;
+                vm.staff = response.data;
             }
             else if(vm.formoneTable === "vet_visits"){
-                vm.visit = response.body;
+                vm.visit = response.data;
             }
             else{
-                vm.customers = response.body;
+                vm.customers = response.data;
             }
             vm.showInfo = true;
         }, function failure(response){
@@ -41,6 +41,9 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
         console.log("In getInfoId");
         $http.get("/db/petid?id=" + vm.petId).then(function success(response){
             vm.pets = response.data;
+            if(vm.pets.adoption_date === null || vm.pets.adoption_date === undefined){
+                vm.pets.adoption_date = "N/A";
+            }
             vm.showPetInfo=true;
         }, function error(response){
             console.log(response);

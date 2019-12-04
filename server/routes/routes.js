@@ -19,15 +19,42 @@ router.get("/",function(req,res){
         if(error){
             res.send("Error");
         }
+        else if(table === "vet_visits"){
+            console.log("getting vet visit info");
+        }
         else{
             if(row === -1){
-
+                con.query("SELECT * FROM ? order by DESC LIMIT 1",[table],function(error,results){
+                    con.release();
+                    if(error){
+                        res.send(error);
+                    }
+                    else{
+                        res.send(results[0]);
+                    }
+                });
             }
             else if(row === 0){
-        
+                con.query("SELECT * FROM ? LIMIT 1",[table],function(error,results){
+                    con.release();
+                    if(error){
+                        res.send(error);
+                    }
+                    else{
+                        res.send(results[0]);
+                    }
+                });
             }
             else{
-        
+                con.query("SELECT * FROM ?",[table],function(error,results){
+                    con.release();
+                    if(error){
+                        res.send(error);
+                    }
+                    else{
+                        res.send(results[row-1]);
+                    }
+                });
             }
         }
     });
