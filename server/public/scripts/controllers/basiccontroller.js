@@ -1,7 +1,35 @@
 myApp.controller("BasicController",["$http","$location",function($http,$location){
     var vm = this;
-
-    console.log("Loaded the controller");
+    vm.rowCount=1;
+    vm.currentTable="";
+    vm.getInfo = function(row){
+        if(row == 0){
+            row = -1;
+            vm.rowCount = -1;
+        }
+        if(vm.currentTable !== vm.formoneTable){
+            vm.rowCount=1;
+            vm.currentTable = vm.formoneTable;
+            vm.showInfo = false;
+        }
+        $http.post("/db?table=" + vm.formoneTable + "&row=" + row).then(function success(response){
+            if(vm.formoneTable === "pets"){
+                vm.pets = response.body;
+                if(vm.pets.adoption_date === null || vm.pets.adoption_date === undefined){
+                    vm.pets.adoption_date = "N/A";
+                }
+            }
+            else if(vm.formoneTable === "staff"){
+                vm.staff = response.body;
+            }
+            else{
+                vm.customers = response.body;
+            }
+            vm.showInfo = true;
+        }, function failure(response){
+            console.log(response);
+        });
+    }
 
     vm.login = function(){
         console.log("Hit the login button");

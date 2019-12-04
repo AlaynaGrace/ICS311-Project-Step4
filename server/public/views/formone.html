@@ -1,0 +1,34 @@
+<!--The form should include at least four buttons (first, previous, next, and last). These buttons are supposed to allow the user to navigate through all the rows in the tab
+For extra points, give the user an option of 3 tables.
+-->
+<b>Select a table: </b><select ng-model="bc.formoneTable">
+    <option value="pets">Pets</option>
+    <option value="staff">Staff</option>
+    <option value="customers">Customers</option>
+  </select> <button ng-click="bc.getInfo()">Get information</button>
+<div ng-if="bc.formoneTable==pets && bc.showInfo==true">
+    <b>Pet ID:</b> {{bc.pets.pet_id}} <br>
+    <b>Name:</b> {{bc.pets.name}} <br>
+    <b>Gender:</b> {{bc.pets.gender}} <br>
+    <b>Type:</b> {{bc.pets.type}} <br>
+    <b>Price:</b> {{bc.pets.price}} <br>
+    <b>Arrival Date:</b> {{bc.pets.arrival_date}} <br>
+    <b>Adoption Date:</b> {{bc.pets.adoption_date}}
+</div>
+<div ng-if="bc.formoneTable==staff && bc.showInfo==true">
+    <b>Staff ID:</b> {{bc.staff.staff_id}} <br>
+    <b>Name:</b> {{bc.staff.name}} <br>
+    <b>Address:</b> {{bc.staff.address}} <br>
+    <b>Salary:</b> {{bc.staff.salary}} <br>
+    <b>Title:</b> {{bc.staff.title}}
+</div>
+<div ng-if="bc.formoneTable==customers  && bc.showInfo==true">
+    <b>Customer ID:</b> {{bc.customers.customer_id}} <br>
+    <b>Name:</b> {{bc.customers.name}} <br>
+    <b>Address:</b> {{bc.customers.address}} <br>
+    <b>Phone Number</b> {{bc.customers.phone_number}}
+</div>
+<button ng-click="bc.getInfo(1)">First</button>
+<button ng-click="bc.getInfo(-1)">Last</button>
+<button ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
+<button ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>

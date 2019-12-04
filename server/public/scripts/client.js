@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp",["ngRoute",'angularjs-dropdown-multiselect', 'ui.bootstrap','xeditable']);
+var myApp = angular.module("myApp",["ngRoute", 'ui.bootstrap','xeditable']);
 
 myApp.config(["$routeProvider", "$locationProvider", function($routeProvider,$locationProvider){
     $locationProvider.html5Mode(true);
