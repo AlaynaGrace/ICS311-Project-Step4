@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>A&I Automation Platform</title>
+        <base href="/" />
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+        <!-- AngularJS -->
+        <script type="text/javascript" src="/vendors/angular.min.js"></script>
+        <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+
+        <!-- Fixed wheel error -->
+        <script type="text/javascript" src="/vendors/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.7.0/lodash.min.js"></script>
+        
+        <!-- SweetAlerts -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- My Controllers and Services -->
+        <script src="scripts/client.js"></script>
+        <script src="scripts/controllers/logincontroller.js"></script>
+
+        <!-- UI Bootstrap -->
+        <script src="/vendors/ui-bootstrap.js"></script>        
+        <script src="/vendors/ui-bootstrap-tpls.js"></script>
+        <!-- <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script> -->
+        <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/ui-bootstrap-csp.css">
+
+        <!-- XEditable -->
+        <link rel="stylesheet" href="/vendors/xeditable.css">
+        <script src="/vendors/xeditable.js"></script>  
+
+
+        <!-- My Style Sheets -->
+        <link rel="stylesheet" href="styles/style.css">
+        
+        <!-- Favicon -->
+        <!-- <link rel="icon"
+        type="image/png"
+        href=""> -->
+
+        <!-- Spinning Wheel -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+    </head>
+    <body ng-app="myApp">
+        <div class="jumbotron"><h1>High Fives!</h1></div>
+    <div class="links">
+      <p>Pick an animal to give a high five!</p>
+      <a href="/">Main</a>
+      <a href="/formone">Form 1</a>
+      <a href="/formtwo">Form 2</a>
+      <a href="/formthree">Form 3</a>
+      <br>
+
+      <div class="info-container">
+        <!-- gave the next div a class so that I could do animations on it -->
+        <div class="animal-view" ng-view>
+
+        </div>
+      </div>
+        <footer style="color:grey;">For more information check out the <a style="color:grey;" target="_blank" href=""><u>GitHub Repository</u>.</a></footer>
+    </body>
+</html>

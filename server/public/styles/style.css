@@ -1,0 +1,115 @@
+img{
+    width: 40%;
+    height:40%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+  
+  h1,h2,h3,p{
+    text-align: center;
+  }
+  
+  .btn{
+    color: black;
+    background-color: green;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .jumbotron{
+    background-image: url('https://static.brusheezy.com/system/resources/previews/000/056/565/non_2x/highfive-hand-background-photoshop-backgrounds.jpg');
+    background-size: contain;
+    color: white;
+    text-shadow: 2px 2px black;
+  }
+  body{
+    font-family: 'Baloo', cursive;
+    background-color: honeydew;
+  }
+  .links{
+    text-align: center;
+  }
+  a{
+    margin-left: 5px;
+    margin-bottom: 5px;
+    border: 5px solid #0d2c40;
+    border-radius: 4px;
+    background-color: #0d2c40;
+    color: honeydew;
+    text-decoration: none;
+  
+  }
+  a:hover,a:focus,a:active{
+    color: grey;
+    text-decoration: none;
+  }
+  
+  .animal-view{
+    margin: 10px;
+  }
+  
+  
+  
+  
+  /*CODE CREDIT: https://code.tutsplus.com/tutorials/how-to-create-animations-in-angularjs-with-nganimate--cms-28593*/
+  /*Just testing out ngAnimate*/
+  
+  
+  /*
+  Unnecessary code that came from the website
+  .info-container {
+    position: relative;
+    margin: 10px 20px;
+  }
+  .animal-view {
+    padding: 10px;
+  }*/
+  
+  /*This is the actual animation
+  transition sets how long the transition goes on for and what kind of transition it is
+  all means that everything in that div is doing the transition
+  you can pick a specific property such as a color to transition if you want
+  ease just means it transitions smoothly
+  0.5s is how long the transition goes on for in seconds
+  the position is the position of whatever we are animating as it is being animated
+  I changed it to relative because that kept everything in my div in line and going straight up
+  before it was absolute and for some reason it was causing everything in my div to go to the side and then go up which was weird*/
+  .animal-view.ng-animate {
+    transition: all ease 0.5s;
+    position: relative; /*Changed to relative so that it wouldn't do a weird side fade thing*/
+  }
+  
+  /*This is what happens when something is entering the view
+  in my app, when you click a link, it causes the current div to disappear and a new one to enter
+  as the new one enters, it starts out "hidden" which is why the opacity is 0
+  It also enters in from below so it is 200px from the top of the parent div
+  essentially:
+  anything entering into the view starts 200px from the top and hidden so that you do not
+  see it immdiately*/
+  
+  .animal-view.ng-enter {
+    top: 200px;
+    opacity: 0;
+  }
+  
+  /*The next round of code dictates what happens while the div is visible but in the process
+  of leaving or entering (like it is about to leave or enter)
+  Now everything in the div is 100% visibile (opacity is at 1) and it is
+  100px from the top of the parent div
+  when the animation is viewed, the div visibily moves downward before launching upwards and disappearing
+  */
+  
+  .animal-view.ng-leave,
+  .animal-view.ng-enter.ng-enter-active {
+    top: 100px;
+    opacity: 1;
+  }
+  
+  /*When the div is leaving it is invisible and it is sent into the parent div so that
+  it looks like it is fading away*/
+  
+  .animal-view.ng-leave.ng-leave-active {
+    top: -200px;
+    opacity: 0;
+  }
