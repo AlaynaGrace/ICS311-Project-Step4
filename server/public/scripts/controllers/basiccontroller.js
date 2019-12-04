@@ -18,19 +18,24 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
         console.log(vm.formoneTable,row);
         $http.get("/db?table=" + vm.formoneTable + "&row=" + row).then(function success(response){
             if(vm.formoneTable === "pets"){
+                console.log(response.data);
                 vm.pets = response.data;
                 if(vm.pets.adoption_date === null || vm.pets.adoption_date === undefined){
                     vm.pets.adoption_date = "N/A";
                 }
+                vm.showInfo = true;
             }
             else if(vm.formoneTable === "staff"){
                 vm.staff = response.data;
+                vm.showInfo = true;
             }
             else if(vm.formoneTable === "vet_visits"){
                 vm.visit = response.data;
+                vm.showInfo = true;
             }
             else{
                 vm.customers = response.data;
+                vm.showInfo = true;
             }
             vm.showInfo = true;
         }, function failure(response){
