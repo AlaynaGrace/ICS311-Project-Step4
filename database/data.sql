@@ -1,3 +1,4 @@
+create database humanesociety;
 use humanesociety;
 -- main tables
 create table staff(
