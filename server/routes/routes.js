@@ -4,7 +4,7 @@ const mysql = require("mysql");
 
 
 let pool = mysql.createPool({
-  host: "0.0.0.0",
+  host: "34.70.109.84",
   user: "root",
   password: "Password123",
   database: "humanesociety"
