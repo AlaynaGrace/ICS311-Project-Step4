@@ -5,9 +5,13 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
     
     vm.getInfo = function(row){
         vm.rowCount = row;
-        if(row === 0){
+        if(row === -1 && vm.formoneTable != "pets"){
             row = 10;
             vm.rowCount = 10;
+        }
+        else{
+            row = 15;
+            vm.rowCount =15;
         }
         if(vm.currentTable !== vm.formoneTable){
             vm.rowCount=1;

@@ -4,6 +4,6 @@
 <b>Vet Name:</b> {{bc.visit.vet_name}}<br>
 <b>Pet Name:</b> {{bc.visit.pet_name}}<br>
 <button class="btn" ng-click="bc.getInfo(1)">First</button>
-<button class="btn" ng-click="bc.getInfo(10)">Last</button>
+<button class="btn" ng-click="bc.getInfo(-1)">Last</button>
 <button class="btn" ng-disabled="bc.rowCount==10" ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
 <button class="btn" ng-disabled="bc.rowCount==0" ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>
