@@ -49,8 +49,8 @@ router.get("/petid",function(req,res){
                     res.send(error);
                 }
                 else{
-                    console.log(results);
-                    res.send(results);
+                    console.log(results[0]);
+                    res.send(results[0]);
                 }
             });
         }
