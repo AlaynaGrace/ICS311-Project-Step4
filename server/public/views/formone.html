@@ -6,7 +6,7 @@ For extra points, give the user an option of 3 tables.
     <option value="staff">Staff</option>
     <option value="customers">Customers</option>
   </select> <button class="btn" ng-click="bc.getInfo(1)">Get information</button>
-<div ng-if="bc.formoneTable==pets && bc.showInfo==true">
+<div ng-if="bc.formoneTable=='pets' && bc.showInfo==true">
     <b>Pet ID:</b> {{bc.pets.pet_id}} <br>
     <b>Name:</b> {{bc.pets.name}} <br>
     <b>Gender:</b> {{bc.pets.gender}} <br>
@@ -15,14 +15,14 @@ For extra points, give the user an option of 3 tables.
     <b>Arrival Date:</b> {{bc.pets.arrival_date}} <br>
     <b>Adoption Date:</b> {{bc.pets.adoption_date}}
 </div>
-<div ng-if="bc.formoneTable==staff && bc.showInfo==true">
+<div ng-if="bc.formoneTable=='staff' && bc.showInfo==true">
     <b>Staff ID:</b> {{bc.staff.staff_id}} <br>
     <b>Name:</b> {{bc.staff.name}} <br>
     <b>Address:</b> {{bc.staff.address}} <br>
     <b>Salary:</b> {{bc.staff.salary}} <br>
     <b>Title:</b> {{bc.staff.title}}
 </div>
-<div ng-if="bc.formoneTable==customers  && bc.showInfo==true">
+<div ng-if="bc.formoneTable=='customers' && bc.showInfo==true">
     <b>Customer ID:</b> {{bc.customers.customer_id}} <br>
     <b>Name:</b> {{bc.customers.name}} <br>
     <b>Address:</b> {{bc.customers.address}} <br>
