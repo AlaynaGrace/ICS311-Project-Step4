@@ -2,9 +2,7 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
     var vm = this;
     vm.rowCount=1;
     vm.currentTable="";
-    if($location.path() === "/formtwo"){
-        vm.getInfo(1);
-    }
+    
     vm.getInfo = function(row){
         vm.rowCount = row;
         if(row === 0){
@@ -45,6 +43,9 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
         }, function failure(response){
             console.log(response);
         });
+    }
+    if($location.path() === "/formtwo"){
+        vm.getInfo(1);
     }
 
     vm.getInfoId = function(){
