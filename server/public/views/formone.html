@@ -30,8 +30,8 @@ For extra points, give the user an option of 3 tables.
 </div>
 <br>
 <div ng-if="bc.showInfo==true">
-    <button class="btn" ng-click="bc.getInfo(1)">First</button>
-    <button class="btn" ng-click="bc.getInfo(10)">Last</button>
+    <button class="btn" ng-click="bc.getInfo('1')">First</button>
+    <button class="btn" ng-click="bc.getInfo('10')">Last</button>
     <button class="btn" ng-disabled="(bc.rowCount === 15 && bc.formoneTable === 'pets') || ((bc.formoneTable === 'staff' || bc.formoneTable === 'customers') && bc.rowCount === 10)" ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
     <button class="btn" ng-disabled="bc.rowCount === 0" ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>
 </div>
