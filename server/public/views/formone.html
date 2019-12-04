@@ -5,7 +5,7 @@ For extra points, give the user an option of 3 tables.
     <option value="pets">Pets</option>
     <option value="staff">Staff</option>
     <option value="customers">Customers</option>
-  </select> <button ng-click="bc.getInfo()">Get information</button>
+  </select> <button class="btn" ng-click="bc.getInfo()">Get information</button>
 <div ng-if="bc.formoneTable==pets && bc.showInfo==true">
     <b>Pet ID:</b> {{bc.pets.pet_id}} <br>
     <b>Name:</b> {{bc.pets.name}} <br>
@@ -28,7 +28,10 @@ For extra points, give the user an option of 3 tables.
     <b>Address:</b> {{bc.customers.address}} <br>
     <b>Phone Number</b> {{bc.customers.phone_number}}
 </div>
-<button ng-click="bc.getInfo(1)">First</button>
-<button ng-click="bc.getInfo(-1)">Last</button>
-<button ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
-<button ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>
+<br>
+<div ng-if="bc.showInfo==true">
+    <button class="btn" ng-click="bc.getInfo(1)">First</button>
+    <button class="btn" ng-click="bc.getInfo(-1)">Last</button>
+    <button class="btn" ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
+    <button class="btn" ng-disabled="bc.rowCount === 0" ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>
+</div>

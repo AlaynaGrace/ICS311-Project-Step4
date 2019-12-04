@@ -1,11 +1,9 @@
-<b>Pet ID:</b> {{bc.pets.pet_id}} <br>
-<b>Name:</b> {{bc.pets.name}} <br>
-<b>Gender:</b> {{bc.pets.gender}} <br>
-<b>Type:</b> {{bc.pets.type}} <br>
-<b>Price:</b> {{bc.pets.price}} <br>
-<b>Arrival Date:</b> {{bc.pets.arrival_date}} <br>
-<b>Adoption Date:</b> {{bc.pets.adoption_date}}
-<button ng-click="bc.getInfo(1)">First</button>
-<button ng-click="bc.getInfo(-1)">Last</button>
-<button ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
-<button ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>
+<h2>Vet Visits</h2>
+<b>Visit ID:</b> {{bc.visit.visit_id}}<br>
+<b>Date:</b> {{bc.visit.date}}<br>
+<b>Vet Name:</b> {{bc.visit.vet_name}}<br>
+<b>Pet Name:</b> {{bc.visit.pet_name}}<br>
+<button class="btn" ng-click="bc.getInfo(1)">First</button>
+<button class="btn" ng-click="bc.getInfo(-1)">Last</button>
+<button class="btn" ng-click="bc.getInfo(bc.rowCount+1)">Next</button>
+<button class="btn" ng-click="bc.getInfo(bc.rowCount-1)">Previous</button>

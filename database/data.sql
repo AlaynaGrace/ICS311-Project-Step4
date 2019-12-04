@@ -1,3 +1,4 @@
+use humanesociety;
 -- main tables
 create table staff(
     staff_id integer primary key,
@@ -25,7 +26,7 @@ create table customers(
     customer_id integer primary key,
     name varchar(120),
     address varchar(200),
-    phone_number varchar(10)
+    phone_number varchar(15)
 );
 create table items(
     item_id integer primary key,
@@ -47,7 +48,7 @@ create table pet_care(
     action varchar(120),
     date date,
     staff_id integer,
-    pet_id integer
+    pet_id integer,
     foreign key (staff_id) references staff(staff_id),
     foreign key (pet_id) references pets(pet_id)
 );
@@ -149,7 +150,7 @@ insert into hours values(4,'2019-11-02',8,4);
 insert into hours values(5,'2019-11-03',10,1);
 insert into hours values(6,'2019-11-03',6,5);
 insert into hours values(7,'2019-11-04',7,7);
-insert into hours values(8,'2019-11-04'9.5,6);
+insert into hours values(8,'2019-11-04',9.5,6);
 insert into hours values(9,'2019-11-05',5,5);
 insert into hours values(10,'2019-11-05',11,9);
 
@@ -167,16 +168,16 @@ insert into pet_care values(9, "Taught basic commands", '2019-10-04', 2, 1007);
 insert into pet_care values(10, "Cleaned cage", '2019-11-03', 10, 1015);
 
 -- vet_visits
-insert into vet_visits values(1,'2019-11-01', 1, 1003);
-insert into vet_visits values(2,'2019-11-03', 7, 1015);
-insert into vet_visits values(3,'2019-05-29', 3, 1005);
-insert into vet_visits values(4, '2019-11-02', 9, 1015);
-insert into vet_visits values(5, '2019-10-05', 2, 1007);
-insert into vet_visits values(6, '2019-10-06', 2, 1007);
-insert into vet_visits values(7, '2019-09-10', 4, 1006);
-insert into vet_visits values(8, '2019-06-17', 6, 1004);
-insert into vet_visits values(9, '2019-06-18', 6, 1004);
-insert into vet_visits values(10, '2019-06-19', 6, 1004);
+insert into vet_visits values(1,'2019-11-01', 10, 1003);
+insert into vet_visits values(2,'2019-11-03', 70, 1015);
+insert into vet_visits values(3,'2019-05-29', 30, 1005);
+insert into vet_visits values(4, '2019-11-02', 90, 1015);
+insert into vet_visits values(5, '2019-10-05', 20, 1007);
+insert into vet_visits values(6, '2019-10-06', 20, 1007);
+insert into vet_visits values(7, '2019-09-10', 40, 1006);
+insert into vet_visits values(8, '2019-06-17', 60, 1004);
+insert into vet_visits values(9, '2019-06-18', 60, 1004);
+insert into vet_visits values(10, '2019-06-19', 60, 1004);
 
 
 -- adoptions

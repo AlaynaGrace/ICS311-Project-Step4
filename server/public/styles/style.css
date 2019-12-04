@@ -10,21 +10,21 @@ img{
     text-align: center;
   }
   
-  .btn{
-    color: black;
-    background-color: green;
-    display: block;
-    margin: 0 auto;
+  .btn,button{
+    color: honeydew;
+    background-color: #0d2c40;
+    /* display: block;
+    margin: 0 auto; */
   }
   
   .jumbotron{
-    background-image: url('https://static.brusheezy.com/system/resources/previews/000/056/565/non_2x/highfive-hand-background-photoshop-backgrounds.jpg');
+    background-color: #0d2c40;
     background-size: contain;
     color: white;
     text-shadow: 2px 2px black;
   }
   body{
-    font-family: 'Baloo', cursive;
+    /* font-family: 'Baloo', cursive; */
     background-color: honeydew;
   }
   .links{
@@ -40,7 +40,7 @@ img{
     text-decoration: none;
   
   }
-  a:hover,a:focus,a:active{
+  a:hover,a:focus,a:active,.btn:hover,.btn:focus,.btn:active{
     color: grey;
     text-decoration: none;
   }

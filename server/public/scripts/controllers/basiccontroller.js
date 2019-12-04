@@ -12,7 +12,10 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
             vm.currentTable = vm.formoneTable;
             vm.showInfo = false;
         }
-        $http.post("/db?table=" + vm.formoneTable + "&row=" + row).then(function success(response){
+        if($location.path() === "/formtwo"){
+            vm.formoneTable = "vet_visits";
+        }
+        $http.get("/db?table=" + vm.formoneTable + "&row=" + row).then(function success(response){
             if(vm.formoneTable === "pets"){
                 vm.pets = response.body;
                 if(vm.pets.adoption_date === null || vm.pets.adoption_date === undefined){
@@ -21,6 +24,9 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
             }
             else if(vm.formoneTable === "staff"){
                 vm.staff = response.body;
+            }
+            else if(vm.formoneTable === "vet_visits"){
+                vm.visit = response.body;
             }
             else{
                 vm.customers = response.body;
@@ -31,40 +37,11 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
         });
     }
 
-    vm.login = function(){
-        console.log("Hit the login button");
-        if(vm.signInCount === 0){
-            vm.signInCount = 1;
-            $http.post("/signin",{username: vm.username, password: vm.password}).then(function(response){
-                if(response.data.user){
-                    if(response.data.user.level !== "Customer"){
-                        $location.path("/home");
-                        return;
-                    }
-                    else if(response.data.user.level === "Customer"){
-                        console.log("Sending the user to the customer page");
-                        $location.path("/customer");
-                        return;
-                    }
-                    else{
-                        swal("Login Error","Incorrect username or password","error");
-                    }
-                }
-                else{
-                    swal("Login Error","Incorrect username or password","error");
-                }
-            }).catch(function(err){
-                swal("Login Error","Incorrect username or password","error");
-            });
-        }
-    };
-
-    vm.logout = function(){
-        vm.signInCount = 0;
-        $http.get("/logout").then(function success(response){
-            $location.path("/");
-        }, function failure(response){
-            $location.path("/");
+    vm.getInfoId = function(){
+        $http.get("/db/petid?id=" + vm.petId).then(function success(response){
+            vm.pets = response.body;
+        }, function error(response){
+            console.log(response);
         });
     }
 }]);

@@ -1,0 +1,9 @@
+<b>Enter a Pet ID: </b><input type="text" ng-model="bc.petId" required><button class="btn" ng-click="bc.getInfoId()">Get information</button>
+<div ng-if="bc.showPetInfo==true">
+    <b>Name:</b> {{bc.pets.name}} <br>
+    <b>Gender:</b> {{bc.pets.gender}} <br>
+    <b>Type:</b> {{bc.pets.type}} <br>
+    <b>Price:</b> {{bc.pets.price}} <br>
+    <b>Arrival Date:</b> {{bc.pets.arrival_date}} <br>
+    <b>Adoption Date:</b> {{bc.pets.adoption_date}}
+</div>
