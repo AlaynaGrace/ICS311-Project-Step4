@@ -40,6 +40,7 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
     vm.getInfoId = function(){
         $http.get("/db/petid?id=" + vm.petId).then(function success(response){
             vm.pets = response.body;
+            console.log(vm.pets);
             vm.showPetInfo=true;
         }, function error(response){
             console.log(response);
