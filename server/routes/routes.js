@@ -18,15 +18,17 @@ router.get("/",function(req,res){
     console.log(table,row);
     pool.getConnection(function(error,con){
         if(error){
+            console.log(error);
             res.send("Error");
         }
         else if(table === "vet_visits"){
             console.log("getting vet visit info");
         }
         else{
-            con.query("SELECT * FROM ?",[table],function(error,results){
+            con.query("SELECT * FROM " + table,function(error,results){
                 con.release();
                 if(error){
+                    console.log(error);
                     res.send(error);
                 }
                 else{
