@@ -22,7 +22,17 @@ router.get("/",function(req,res){
             res.send("Error");
         }
         else if(table === "vet_visits"){
-            console.log("getting vet visit info");
+            con.query("SELECT * FROM vet_visits JOIN veterinarians on vet_visits.vet_id=veterinarians.vet_id JOIN pets ON vet_visits.pet_id=pets.pet_id",function(error,results){
+                con.release();
+                if(error){
+                    console.log(error);
+                    res.send(error);
+                }
+                else{
+                    console.log(results[row-1]);
+                    res.send(results[row-1]);
+                }
+            });
         }
         else{
             con.query("SELECT * FROM " + table,function(error,results){

@@ -3,6 +3,7 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
     vm.rowCount=1;
     vm.currentTable="";
     vm.getInfo = function(row){
+        vm.rowCount = row;
         if(row === 0){
             row = 10;
             vm.rowCount = 10;
