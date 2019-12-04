@@ -15,6 +15,7 @@ let pool = mysql.createPool({
 router.get("/",function(req,res){
     let table = req.query.table;
     let row = req.query.row;
+    console.log(table,row);
     pool.getConnection(function(error,con){
         if(error){
             res.send("Error");
@@ -23,39 +24,16 @@ router.get("/",function(req,res){
             console.log("getting vet visit info");
         }
         else{
-            if(row === -1){
-                con.query("SELECT * FROM ? order by DESC LIMIT 1",[table],function(error,results){
-                    con.release();
-                    if(error){
-                        res.send(error);
-                    }
-                    else{
-                        res.send(results[0]);
-                    }
-                });
-            }
-            else if(row === 0){
-                con.query("SELECT * FROM ? LIMIT 1",[table],function(error,results){
-                    con.release();
-                    if(error){
-                        res.send(error);
-                    }
-                    else{
-                        res.send(results[0]);
-                    }
-                });
-            }
-            else{
-                con.query("SELECT * FROM ?",[table],function(error,results){
-                    con.release();
-                    if(error){
-                        res.send(error);
-                    }
-                    else{
-                        res.send(results[row-1]);
-                    }
-                });
-            }
+            con.query("SELECT * FROM ?",[table],function(error,results){
+                con.release();
+                if(error){
+                    res.send(error);
+                }
+                else{
+                    console.log(results[row-1]);
+                    res.send(results[row-1]);
+                }
+            });
         }
     });
 });

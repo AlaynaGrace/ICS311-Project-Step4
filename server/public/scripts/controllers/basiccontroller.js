@@ -3,9 +3,9 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
     vm.rowCount=1;
     vm.currentTable="";
     vm.getInfo = function(row){
-        if(row == 0){
+        if(row === 0){
             row = 10;
-            vm.rowCount = -1;
+            vm.rowCount = 10;
         }
         if(vm.currentTable !== vm.formoneTable){
             vm.rowCount=1;
@@ -15,6 +15,7 @@ myApp.controller("BasicController",["$http","$location",function($http,$location
         if($location.path() === "/formtwo"){
             vm.formoneTable = "vet_visits";
         }
+        console.log(vm.formoneTable,row);
         $http.get("/db?table=" + vm.formoneTable + "&row=" + row).then(function success(response){
             if(vm.formoneTable === "pets"){
                 vm.pets = response.data;
